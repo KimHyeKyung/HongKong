@@ -22,7 +22,7 @@ Java, HTML, CSS, JavaScript, Ajax, JQuery <br>
 #### 2. 홍콩 여행 후기, NOTICE (JPA, Ajax를 이용한 CRUD구현)
 #### 3. PHOTO 후기(FILE을 이용한 CRUD구현)
 #### 4. Q&A(MyBatis를 이용한 CRUD구현)
-#### 5. Spring Security(Spring Security를 유저 권한설정) - 진행중
+#### 5. Spring Security(Spring Security를 통한 인증,인가 ) - 진행중
 <br>
 <br>
 
