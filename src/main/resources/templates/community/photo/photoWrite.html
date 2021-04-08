@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="/css/community/write.css">
+	<link rel="stylesheet" href="/css/index.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#fileInput").change(fileSelected);
+		});
+		
+		function fileSelected(){
+			alert("파일선택완료");
+			var formData = new FormData(); //FormData(): formData.append(key,value)를 사용할 수 있다.
+			var file = $("#fileInput")[0].files[0]; //단일태그라서 [0]
+			formData.append("file", file);//append(key,value)
+			formData.append("temp", $("#temp").val());//append(key,value)
+			
+			$("#fileInput"); //파일을 선택하면 띄우는 ajax처리
+			$.ajax({
+					url: "/community/photo/preView",
+					type: "POST",
+					data: formData,
+					processData: false, //processData: false로 지정해줘야하는 특징이 있다 (데이터 전송방법 기본값이 문자열이라서 false로 바꿔준다)
+					contentType: false, //contentType: false로 지정해줘야하는 특징이 있다 (데이터 전송방법 기본값이 문자열이라서 false로 바꿔준다)
+					success:function(fileUrl){
+						//여기 백그라운드에 이미지 깔거에요
+						$("#preView-Img").css("background-image", "url("+fileUrl+")");
+						//bin파일에 이미지 쌓이니깐 삭제하기 위해서 이미지 경로를 여기서도 받을게요
+						$("#temp").attr("value",fileUrl);
+					}
+			});
+		}
+	
+	
+	</script>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+		#fileInput{
+			display: none;
+		}
+		#fileLable{
+			display: inline-block;
+			width: 416px;
+			height: 416px;
+			border: 1px dashed gray;
+			text-align: center;
+			line-height: 412px;
+			font-size: 20px;
+			cursor: pointer;
+		}
+		#fileLable:hover{
+			color: green;
+			border-color: green;
+			border: 2px dashed;
+		}
+		#contents, #subject{
+			margin: 5px 0;
+			width: 416px;
+			height: 30px;
+		}
+		#contents{
+			height: 150px;
+		}
+		#file-wrap{
+			position: relative;
+		}
+		/* 이미지 넣기 */
+		#preView-Img{
+			position: absolute;
+			top:0;  /* absolute주면 top,left가능 */
+			left:0;
+			display: block;
+			width: 416px;
+			height: 416px;
+			background-size: cover;
+			z-index: -1;
+		}
+		#submit {
+			height:25px;
+			line-height: 25px;
+			padding: 0;
+			font-size: 12px;
+			background-color: #404040;
+			color: #fff;
+		}
+	</style>
+
+</head>
+<body>
+	<th:block th:insert="/HeaderFooter::header">
+	</th:block>
+	<section id="WRITE">
+		<h1>WRITE</h1>
+		<span>WRITE</span>
+	</section>
+
+	<section>
+			<div class="form-wrap flex-around">
+				<!-- enctype꼭 설정!! (enctype="multipart/form-data") -->
+				<form action="/community/photo/photoWrite" method="post" enctype="multipart/form-data">
+					<div id="file-wrap">
+						<label for="fileInput" id="fileLable">+</label>
+						<input type="file" name="file" id="fileInput">
+						<input type="hidden" name="temp" id="temp">
+						<span id="preView-Img"></span><!--  여기 백그라운드에 이미지 깔거에요 -->
+					</div>
+					<p>
+						<input type="text" id="subject" name="subject"  placeholder="subject">
+					</p>
+					<p>
+						<input type="text" id="contents" name="contents"  placeholder="contents">
+					</p>
+					<p>
+						<input value="글쓰기" id="submit" type="submit">
+					</p>
+				</form>
+			</div>
+		</section>
+
+
+
+	<!--        
+         페이징처리 섹션 만들어야 함
+         시작번호:1,  마지막페이지번호: page.getTotalPages()
+         <div>
+            <a href="">&lt;</a>
+         
+         
+         
+         </div> 페이징처리 영역
+         
+         
+   -->
+   	<th:block th:insert="/HeaderFooter::footer">
+	</th:block>
+
+</body>
+</html>

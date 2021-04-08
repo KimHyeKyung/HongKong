@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="/css/community/board/detail.css">
+	<link rel="stylesheet" href="/css/index.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script  th:inline="javascript">
+		$(function(){
+			getReply();
+			$("#edit_form").hide();
+			$("#editBtn").click(editBtnClicked);//수정버튼 누르면
+			$(".btn-reply").click(btnReplyClicked); //댓글 등록버튼 누르면 
+		});
+		
+	///////////////////// 게시글 관련 function //////////////////////
+		function editBtnClicked(){ //수정버튼 function
+			$("#edit_form").show();
+			$("#detail_form").hide();
+		}
+	
+	///////////////////// 댓글관련 function ////////////////////////
+		function getReply(){ //댓글 전체를 가져와라
+			var bno = /*[[${detail.bno}]]*/"";
+			//var bno = "[[${detail.bno}]]";
+		
+			$.ajax({
+				url:"/rest/reply/"+bno, //hidden으로 숨겨진 게시판의 bno의 값 가져오기
+				success: function(data){
+					$("#reply-area").html(data);
+				}
+			});
+		}
+		
+		function btnReplyClicked(){ //댓글 등록버튼 눌렀을 때
+			var text = $("#text").val();
+			var replyWriter = $("#replyWriter").val();
+			var boardBno = $("#bno").val();
+			
+			$.ajax({
+				url:"/rest/reply",
+				data:{
+					"text":text,
+					"replyWriter":replyWriter,
+					"boardBno":boardBno
+				},
+				type:"post",
+				success:function(){
+					getReply(); //변경된 데이터 전체 불러오기
+					$("#text").val(""); //댓글창에 입력된 정보 리셋
+				}
+					
+			});
+			
+		}
+	</script>
+</head>
+<body>
+	<th:block th:insert="/HeaderFooter::header">
+	</th:block>
+
+	<section id="detail">
+		<h1>REVIEW</h1>
+		<span>REVIEW</span>
+	</section>
+	
+	
+	<section class="table-wrap">
+		<div id="detail_form">
+			<h1>테이블</h1>
+			<div>
+				<table class="table">
+					<tbody>
+						<tr>
+							<th>작성일</th>
+							<td>[[${detail.createdDate}]]</td>
+						</tr>
+						<tr>
+							<th>작성자</th>
+							<td>[[${detail.creatorId}]]</td>
+						</tr>
+						<tr>
+							<th>제목</th>
+							<td>[[${detail.subject}]]</td>
+						</tr>
+						<tr id="table-contents">
+							<th>내용</th>
+							<td>[[${detail.contents}]]</td>
+						</tr>
+					</tbody>
+				</table>
+				<div>
+					<input type="button" id="editBtn" value="수정">
+				</div>
+			</div>
+		</div>
+
+<!-- -------------------------------수정하기 눌렀을 때 변환되는 폼------------------------------- -->
+		<div id="edit_form">
+			<form action="/community/review/detail" method="post">
+				<div>
+					<table class="table">
+						<tbody>
+							<tr>
+								<th>작성일</th>
+								<td>[[${detail.createdDate}]]</td>
+							</tr>
+							<tr>
+								<th>작성자</th>
+								<td>[[${detail.creatorId}]]</td>
+							</tr>
+							<tr>
+								<th>제목</th>
+								<td><textarea name="subject">[[${detail.subject}]]</textarea></td>
+							</tr>
+							<tr id="table-contents">
+								<th>내용</th>
+								<td><textarea name="contents" id="con">[[${detail.contents}]]</textarea></td>
+							</tr>
+						</tbody>
+					</table>
+					<input type="hidden" name="createdDate">
+					<input type="hidden" th:value="${detail.bno}" name="bno" id="bno">
+					<th:block sec:authorize="isAuthenticated()">
+						<input type="hidden" name="creatorId" th:value="${#authentication.principal.name}"/>
+					</th:block>
+					<div>
+						<input type="submit" id="editDoneBtn" value="수정">
+						<a th:href="|/community/review/delete/${detail.bno}|">
+							<input id="del-btn" type="button" value="삭제">
+						</a>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="reply-container">
+			<!-------------- 댓글 작성 영역 ----------------->
+			
+			<div class="reply-write-wrap">
+				<div class="reply-input-wrap">
+					<div sec:authorize="isAuthenticated()">
+						<input type="hidden" id="replyWriter" name="replyWriter" th:value="${#authentication.principal.name}">
+					</div>
+					<div><input class="reply-input" type="text" id="text" name="text" placeholder="댓글을 입력해주세요"></div>
+					<div><input type="submit" class="btn-reply" value="등록"/></div>
+				</div>
+			</div>
+			
+			<!-------------- 댓글표현영역 ----------------->
+			<div id="reply-area">
+			</div>
+		
+		</div>
+	</section>
+	
+
+	<th:block th:insert="/HeaderFooter::footer">
+	</th:block>
+
+	<!--        
+         페이징처리 섹션 만들어야 함
+         시작번호:1,  마지막페이지번호: page.getTotalPages()
+         <div>
+            <a href="">&lt;</a>
+         
+         
+         
+         </div> 페이징처리 영역
+         
+   -->
+
+</body>
+</html>

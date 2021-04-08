@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>HongKong</title>
+<link rel="stylesheet" href="/css/community/explore/food.css">
+<link rel="stylesheet" href="/css/HeaderFooter.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".hkimg").click(falert);
+	});
+	
+	function falert(){
+		alert("준비중입니다 :)");
+	}
+</script>
+</head>
+<body>
+	<th:block th:insert="/HeaderFooter::header">
+	</th:block>
+
+	<main class="main">
+		<h1>메인영역</h1>
+		<div class="main-wrap">
+			<section id="MainVisual">
+				<!-- ---------visual 이미지--------- -->
+				<h1>메인영역1 MainVisualImg</h1>
+				<div id="MainVisualImg">
+					<ul class="flex">
+						<li><img alt="" src="/images/food/dining_1920x1080.jpg"></li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h1>메인영역2 MainContents</h1>
+				<section>
+					<h1>메인영역2-1 attraction</h1>
+					<!--  attraction section -->
+						<div class="attraction-wrap">
+							<div id="attraction-intro">
+								<span id="attraction-intro-span">﻿홍콩만의 독특한 로컬 음식과 국제적인 최상급의 음식까지 아우르는 다양한 미식 경험이 가능한 곳, 바로 홍콩입니다.</span>
+							</div>
+							<div class="harbour-container">
+								<div id="attraction">
+									<span>Food</span>
+								</div>
+								<div>
+									<div class="img-wrap">
+										<img alt="" src="/images/food/banner16_9.jpg">
+										<div id="harbour-write">홍콩의 유명한 딤섬 레스토랑</div> 
+									</div>
+									<div class="harbour-info">
+										<div>홍콩을 대표하는 딤섬!</div>
+										<div>레스토랑마다 특색있는 딤섬들을 만나보세요.</div>
+									</div>
+								</div>
+								<div class="middle-img-wrap">
+									<div class="middle-img">
+										<img>
+									</div>
+								</div>
+								<div class="imgs">
+									<div>
+										<div></div>
+									</div>
+									<div class="imgs-wrap">
+										<div class="imgs1 flex-around">
+											<div class="imgbox imgs1-1">
+												<a href="/community/explore/food/coffee"><img src="/images/food/Banner4_3.jpg"></a>
+												<p class="imgbox-header">Unique Coffee</p>
+												<p>홍콩에서만 느낄 수 있는 스페셜 티와 카페를 소개합니다!</p>
+											</div>
+											<div class="hkimg imgbox imgs1-2">
+												<a href="#"><img src="/images/food/Banner4_3 (1).jpg"></a>
+												<p class="imgbox-header">Sweet Dessert</p>
+												<p>달콤한 매력을 맛볼 수 있는 홍콩 전통 디저트</p>
+											</div>
+											<div class="hkimg imgbox imgs1-3">
+												<a href="#"><img src="/images/food/sheraton_4_3.jpg"></a>
+												<p class="imgbox-header">홍콩 최고의 브런치 레스토랑</p>
+												<p>채식과 육식을 어우르는 홍콩 최고의 레스토랑</p>
+											</div>
+										</div>
+										<div  class="hkimg imgs2 flex-around">
+											<div class="imgbox">
+												<a href="#"><img src="/images/food/shane-osborn-header-4-3.jpg"></a>
+												<p class="imgbox-header">Shane Osborn</p>
+												<p>리얼리티 TV 우승자 스타 셰프이자 홍콩의 자랑, 셰인 오스본을 만나다</p>
+											</div>
+											<div class="hkimg imgbox">
+												<a href="#"><img src="/images/food/Banner16_9 (1).jpg"></a>
+												<p class="imgbox-header">Tai Kwun Centre Restaurant</p>
+												<p>타이쿤에서 꼭 들러봐야 하는 레스토랑 7</p>
+											</div>
+											<div class="imgbox">
+												<a href="#"><img src="/images/food/chef-peggy_credit_calvin-sit-4_3.jpg"></a>
+												<p class="imgbox-header">Vegan Restaruant</p>
+												<p>페기 찬(Peggy Chan) 셰프가 소개하는 홍콩의 비건 레스토랑 베스트 4</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+				</section>
+				
+
+				<section>
+					<h1>메인영역2-2 looking for</h1>
+					<!--  looking for section -->
+				</section>
+
+				<section>
+					<h1>메인영역2-3 Traveller essentials</h1>
+				</section>
+				<!--  Traveller essentials section -->
+			</section>
+			<!-- MainContents section -->
+		</div>
+	</main>
+
+
+	<th:block th:insert="/HeaderFooter::footer">
+	</th:block>
+</body>
+</html>

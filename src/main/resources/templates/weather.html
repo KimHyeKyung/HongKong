@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/weather.css">
+
+<div class="weather-wrap">
+	<div th:each="weather:${weather}">
+		<div class="weatherImg">
+			<img th:src="|http://openweathermap.org/img/wn/${weather.icon}@2x.png|" alt="">
+		</div>
+		<div>
+			<span class="weather-de">[[${weather.description}]]</span>
+		</div>
+	</div>
+	<div>
+		<span class="weather-temp">[[${main.temp}]]°C</span>
+	</div>
+</div>

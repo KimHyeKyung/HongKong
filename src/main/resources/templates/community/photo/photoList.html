@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/community/photo/list.css">
+<link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+	<th:block th:insert="/HeaderFooter::header">
+	</th:block>
+	<section id="PHOTO">
+		<h1>PHOTO</h1>
+		<span>PHOTO</span>
+	</section>
+
+	<section>
+		<h1>테이블</h1>
+		<div class="contents-wrap">
+			<ul class="grid-container" >
+				<li class="photo-box-wrap"  th:each="dto:${list}">
+					<div class="photo-box">
+						<a th:href="|/community/photo/photoDetail/${dto.no}|">
+							<span class="img">
+								<img alt="img" th:src="${dto.img.fileUrl}">
+							</span>
+						</a>
+						<div class="photo-container">
+							<p id="photo-subject">[[${dto.subject}]]</p>
+							<p id="photo-contents">[[${dto.contents}]]</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<div class="goWrite-btn-wrap">
+				<a id="goWrite-btn" href="/community/photo/photoWrite">글쓰기</a>
+			</div>
+
+		</div>
+
+	</section>
+
+
+
+	<!--        
+         페이징처리 섹션 만들어야 함
+         시작번호:1,  마지막페이지번호: page.getTotalPages()
+         <div>
+            <a href="">&lt;</a>
+         
+         
+         
+         </div> 페이징처리 영역
+         
+         
+   -->
+	<th:block th:insert="/HeaderFooter::footer">
+	</th:block>
+</body>
+</html>

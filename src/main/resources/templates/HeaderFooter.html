@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/css/HeaderFooter.css">
+</head>
+<body>
+	<header th:fragment="header" id="header">
+		<h1>상단영역</h1>
+		<div class="All-header-wrap">
+			<section>
+				<div id="rainbowBar">
+					<h1>상단영역1 rainbowBar</h1>
+					<!-- <img alt="rainbowBar" src="/images/rainbow1.gif"> -->
+				</div>
+				<div class="header-wrap flex-around header-sticky">
+					<h1>상단영역2</h1>
+					<section>
+						<div>
+							<h1>상단영역2-1 로고</h1>
+							<ul class="header1-logo">
+								<li><a href="/"><img alt="HKTB-logo" src="/images/HKTB-logo.svg"></a>
+								</li>
+							</ul>
+						</div>
+					</section>
+					<nav class="header2">
+						<h1>header2-2 navBar</h1>
+						<div class="header2-warp">
+							<ul class="navBar-wrap flex">
+								<li class="EXPLORE-menu menu"><a href="#">EXPLORE</a>
+									<ul>
+										<li><a href="/community/explore/attraction/attraction">관광지</a></li>
+										<li><a href="/community/explore/food/food">음식</a></li>
+									</ul>
+								</li>
+								<li class="COMMUNITY-menu menu"><a href="/community/review/list">COMMUNITY</a>
+									<ul>
+										<li><a href="/community/review/list">홍콩여행 후기</a></li>
+										<li><a href="/community/photo/photoList">홍콩여행 Photo</a></li>
+									</ul>
+								</li>
+								<li class="COMMUNITY-menu menu"><a href="/cs/faq-list">FAQ</a>
+								</li>
+								<li class="COMMUNITY-menu menu"><a href="/cs/qnaList">Q&A</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+					<section>
+						<div class="header3-wrap">
+							<h1>상단영역2-3 user</h1>
+							<ul class="header3-user ">
+								<li><a sec:authorize="isAnonymous()" href="/member/login">로그인</a></li><!-- isAnonymous():인증이 되지 않은경우 -->
+								 <li>
+					            	<th:block sec:authorize="isAuthenticated()"><!-- sec:authorize="isAuthenticated()"이 권한을 물어보는거라 넣어줘야한다if문같은 느낌 -->
+					            		<!-- <a href="#" sec:authentication="name"></a> --><!-- 1. attribute를 이용하는 방법 -->
+										<!-- <a href="#" th:text="${#authentication.name}"> --></a><!-- 2. 타임리프를 이용하는 방법 -->
+					            		<!-- AuthMemberDto의 필드값을 사용하기위해서 principal(인가된 정보)사용 -->
+					            		<a href="#" sec:authentication="principal.name"></a>
+					            		<a href="/logout">로그아웃</a>
+					            	</th:block>
+					            </li>
+								<li><a href="/member/join">회원가입</a></li>
+							</ul>
+						</div>
+					</section>
+				</div>
+				<!-- rainbowbar제외 wrap -->
+			</section>
+		</div>
+		<!-- rainbowbar까지 wrap -->
+	</header>
+
+	<footer th:fragment="footer" class="footer">
+		<div class="footer-wrap view-width">
+			<h1>푸터영역</h1>
+			<section class="footer1-wrap">
+				<h1>footer1 company info</h1>
+				<div class="footer1 flex-between">
+					<section>
+						<h1>ABOUT THIS SITE</h1>
+						<ul>
+							<li>ABOUT THIS SITE</li>
+							<li>이용약관</li>
+							<li>개인정보 취급방침</li>
+							<li>쿠키 정책</li>
+						</ul>
+					</section>
+					<section>
+						<h1>OUR OTHER SITES</h1>
+						<ul>
+							<li>OUR OTHER SITES</li>
+							<li>홍콩관광청에 대해</li>
+							<li>뉴스룸</li>
+							<li>여행업계 파트너넷</li>
+							<li>컨벤션 &amp; 전시회</li>
+							<li>Join Us</li>
+						</ul>
+					</section>
+
+					<section>
+						<h1>RELATED SITES</h1>
+						<ul>
+							<li>RELATED SITES</li>
+							<li>Visit HongKong</li>
+							<li>Brand HongKong</li>
+						</ul>
+					</section>
+
+					<section>
+						<h1>HELP</h1>
+						<ul>
+							<li>HELP</li>
+							<li>문의 및 제안</li>
+							<li>FAQ</li>
+							<li>뉴스레터 등록</li>
+							<li>채팅하기</li>
+						</ul>
+					</section>
+
+					<section>
+						<h1>FOLLOW US NOW!</h1>
+						<ul>
+							<li>FOLLOW US NOW!</li>
+							<li>페이스북</li>
+							<li>인스타그램</li>
+							<li>유튜브</li>
+							<li>트위터</li>
+							<li>블로그</li>
+						</ul>
+					</section>
+				</div>
+			</section>
+			<section>
+				<div class="footer2-wrap flex-between">
+				<h1>footer2</h1>
+					<section class="footer2">
+						<h1>footer2-1 copyright</h1>
+						<div>
+							<span>Copyright © 2020 Hong Kong Tourism Board. All rights
+								reserved.</span>
+						</div>
+					</section>
+					<section>
+						<h1>footer2-2 footer logo</h1>
+						<div>
+							<img alt="HKTB-logo" src="/images/HKTB-logo.svg">
+						</div>
+					</section>
+				</div><!-- footer2-wrap -->
+			</section>
+		</div>
+	</footer>
+
+</body>
+</html>

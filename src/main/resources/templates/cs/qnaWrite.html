@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/community/board/write.css">
+<link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+	<th:block th:insert="/HeaderFooter::header">
+	</th:block>
+	<section id="WRITE">
+		<h1>Q&A WRITE</h1>
+		<span>Q&A WRITE</span>
+	</section>
+
+	<section>
+		<h1>테이블</h1>
+		<div class="form-wrap flex-around">
+			<form action="/cs/write" method="post">
+				<div class="table-wrap">
+					<table class="table">
+						<tbody>
+							<tr>
+								<th>제목</th>
+								<td><textarea name="subject" rows="3" cols="40"></textarea></td>
+							</tr>
+							<tr id="table-contents">
+								<th>내용</th>
+								<td><textarea name="contents" id="con" rows="10" cols="40" ></textarea></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div sec:authorize="isAuthenticated()">
+					<span><input type="hidden" name="name" th:value="${#authentication.principal.name}"/></span>
+					<span><input type="hidden" name="email" th:value="${#authentication.principal.email}"/></span>
+				</div>
+				<div>
+					<input id="write-btn" type="submit" value="글쓰기">
+				</div>
+			</form>
+		</div>
+
+	</section>
+
+
+
+	<!--        
+         페이징처리 섹션 만들어야 함
+         시작번호:1,  마지막페이지번호: page.getTotalPages()
+         <div>
+            <a href="">&lt;</a>
+         
+         
+         
+         </div> 페이징처리 영역
+         
+         
+   -->
+   	<th:block th:insert="/HeaderFooter::footer">
+	</th:block>
+
+</body>
+</html>

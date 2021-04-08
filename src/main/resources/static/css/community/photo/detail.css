@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+*{
+   box-sizing: border-box;
+}
+p{
+   margin: 10px 0;
+}
+#detail {
+	font-size: 28px;
+	color: #353535;
+	text-align: center;
+	padding: 153px 0 40px;
+}
+#detail_form,
+#edit_form
+{
+	width: 416px;
+	margin: 0 auto;
+}
+/* 테이블전체 */
+.subject1 {
+   display: table-cell;
+   padding: 21px 30px;
+   vertical-align: middle;
+   width: 250px;
+   background-color: #fafafa;
+   border-top: 1px solid #e7e8ea;
+   border-bottom: 1px solid #e7e8ea;
+   margin: 94px -3.2px 0 0;
+}
+
+.subject2 {
+   display: table-cell;
+   padding: 21px 30px;
+   vertical-align: middle;
+   width: 350px;
+   border-top: 1px solid #e7e8ea;
+   border-bottom: 1px solid #e7e8ea;
+   margin: 94px -3.2px 0 0;
+}
+
+.contents1 {
+   display: table-cell;
+   padding: 100px 30px;
+   vertical-align: middle;
+   width: 250px;
+   background-color: #fafafa;
+   border-bottom: 1px solid #e7e8ea;
+}
+
+.contents2 {
+   display: table-cell;
+   padding: 100px 30px;
+   vertical-align: middle;
+   width: 350px;
+   border-bottom: 1px solid #e7e8ea;
+}
+
+.form-wrap form button {
+   margin: 30px 0 30px 0;
+}
+
+/* --------------------------------------- */
+#fileInput{
+   display: none;
+}
+#fileLable{
+   display: inline-block;
+   width: 416px;
+   height: 416px;
+   text-align: center;
+   line-height: 412px;
+   font-size: 20px;
+   cursor: pointer;
+}
+#fileLable img{
+   width: 413px;
+   height: 413px;
+}
+#subject{
+   height: 30px;
+   margin: 5px 0;
+   width: 416px;
+}
+#contents{
+   height: 150px;
+   margin: 5px 0;
+   width: 416px;
+}
+
+#file-wrap{
+   position: relative;
+}
+#submit {
+   height:25px;
+   line-height: 25px;
+   padding: 0;
+   font-size: 12px;
+   background-color: #404040;
+   color: #fff;
+}

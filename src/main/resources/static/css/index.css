@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+@import url("/css/HeaderFooter.css");
+
+@import url("/css/common.css");
+
+/* ----------------------------------------------- */
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+#MainVisual #prev_btn {
+	position: absolute;
+	margin-top: -260px;
+}
+
+#MainVisual #next_btn {
+	position: absolute;
+	margin-top: -260px;
+}
+
+.button:hover {
+	cursor: pointer; /*마우스 올리면 포인트 모양으로 바뀜*/
+}
+
+#prev_btn {
+	left: 20px;
+}
+
+#next_btn {
+	right: 20px;
+}
+/* ----------------------------------------------- */
+
+/* popualr now */
+.attraction-wrap{
+	padding: 50px 0;	
+}
+#attraction-intro{
+	width: 100%;
+	height:50px;
+	text-align: center;
+	font-size: 15px;
+}
+.harbour-container{
+	width: 100%;
+}
+#attraction{
+	width: 100%;
+	height:50px;
+	text-align: center;
+	font-size: 35px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-weight: 700;
+}
+#dimsum-youtube{
+	width: 778px;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#dinsum-info{
+	padding-top:20px;
+	text-align: center;
+	font-size: 24px;
+	color: #666;
+}
+#dinsum-info-inside{
+	padding-top:10px;
+	text-align: center;
+	font-size: 16px;
+	color: #666;
+}
+.attraction-wrap .img-wrap img{
+	width: 1100px;
+	height: 618px;
+	margin-left: 284px;
+	margin-top: 70px;
+	position: relative;
+}
+#harbour-write{
+	position: absolute;
+	margin-top: -55px;
+	margin-left: 290px;
+    color: #fff;
+    font-size: 27px;
+    font-weight: bold;
+}
+.harbour-info{
+	width:1100px;
+	margin: 0 auto;
+    text-align: center;
+    font-size: 14px;
+}
+.harbour-info div{
+	 padding-top: 10px;
+}
+/* -------------------------------- */
+.middle-img-wrap{
+	width: 100%;
+	margin-top: 100px;
+}
+.middle-img img{
+	background-image: url("/images/header-16-9.webp");
+	background-position:center;
+	width: 100%;
+	height:400px;
+}
+/* -------------------------------- */
+.imgs{
+	width: 1000px;
+    margin: 0 auto;
+    padding-top: 70px;
+}
+.imgbox-header{
+	font-size: 20px;
+}
+.imgs-wrap p{
+	margin-bottom: 10px;
+}
+.imgbox{
+	margin-right: 20px;
+}
+.imgs1{
+	padding-bottom: 60px;
+}
+.imgs1 img{
+    width: 384px;
+    height: 290px;
+}
+/* ----------------------- */
+.imgs2 img{
+    width: 384px;
+    height: 290px;
+}
+
+
+
+
+

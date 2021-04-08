@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>HongKong</title>
+<link rel="stylesheet" href="/css/community/explore/attraction.css">
+<link rel="stylesheet" href="/css/HeaderFooter.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".hkimg").click(falert);
+	});
+	
+	function falert(){
+		alert("준비중입니다 :)");
+	}
+</script>
+</head>
+<body>
+	<th:block th:insert="/HeaderFooter::header">
+	</th:block>
+
+	<main class="main">
+		<h1>메인영역</h1>
+		<div class="main-wrap">
+			<section id="MainVisual">
+				<!-- ---------visual 이미지--------- -->
+				<h1>메인영역1 MainVisualImg</h1>
+				<div id="MainVisualImg">
+					<ul class="flex">
+						<li><img alt="" src="/images/attraction/attraction-header.jpg"></li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h1>메인영역2 MainContents</h1>
+				<section>
+					<h1>메인영역2-1 attraction</h1>
+					<!--  attraction section -->
+						<div class="attraction-wrap">
+							<div id="attraction-intro">
+								<span id="attraction-intro-span">﻿세계적인 테마파크는 물론 아름다운 콜로니얼 건물도, 상징적인 랜드마크에서부터 매력적인 중국식 사원에 이르기까지, 이 모든 게 홍콩에 있습니다!</span>
+							</div>
+							<div class="harbour-container">
+								<div id="attraction">
+									<span>Attractions</span>
+								</div>
+								<div>
+									<div class="img-wrap">
+										<img alt="" src="/images/attraction/best-ways-to-marvel-iconic-harbour-700x394.jpg">
+										<div id="harbour-write">빅토리아 하버를 즐기기 위한 최고의 방법</div> 
+									</div>
+									<div class="harbour-info">
+										<div>홍콩을 대표하는 빅토리아 하버.</div>
+										<div>각각 다른 각도에서 최고의 전망을 즐길 수 있는 최적의 장소를 알고계신가요?</div>
+									</div>
+								</div>
+								<div class="middle-img-wrap">
+									<div class="middle-img">
+										<img>
+									</div>
+								</div>
+								<div class="imgs">
+									<div>
+										<div></div>
+									</div>
+									<div class="imgs-wrap">
+										<div class="imgs1 flex-around">
+											<div class="imgbox imgs1-1">
+												<a href="/community/explore/attraction/disneyLand"><img src="/images/attraction/guide-to-disneyland-header-4-3.jpg"></a>
+												<p class="imgbox-header">Disney Land</p>
+												<p>우리가 사랑하는 홍콩 디즈니랜드 완벽 가이드</p>
+											</div>
+											<div class="imgbox imgs1-2">
+												<a href="/community/explore/attraction/symphonyOfLights"><img src="/images/attraction/aqua-luna-4-3.jpg"></a>
+												<p class="imgbox-header">A Symphony of Lights</p>
+												<p>매일 밤 8시 세계에서 가장 아름다운 빛의 세계로 초대합니다.</p>
+											</div>
+											<div class="imgbox imgs1-3">
+												<a href="/community/explore/attraction/instagram"><img src="/images/attraction/most-instagrammable-spots-en-4-3.jpg"></a>
+												<p class="imgbox-header">Best spots in Instagram</p>
+												<p>홍콩에서 베스트 인스타그래머블 장소 7</p>
+											</div>
+										</div>
+										<div  class="imgs2 flex-around">
+											<div class="imgbox">
+												<a href="/community/explore/attraction/family"><img src="/images/attraction/family-attraction-header-4-3.jpg"></a>
+												<p class="imgbox-header">Best Spots For Family</p>
+												<p>모든 연령대의 가족여행자를 위한 홍콩 여행지</p>
+											</div>
+											<div class="hkimg imgbox">
+												<a href="#" ><img src="/images/attraction/hk-on-a-budget-4-3.jpg"></a>
+												<p class="imgbox-header">HongKong On Budget</p>
+												<p>저예산으로 홍콩을 여행할 수 있는 11가지의 방법을 소개합니다.</p>
+											</div>
+											<div class="hkimg imgbox">
+												<a href="#"><img src="/images/attraction/evolution-skyline-header-4-3.jpg"></a>
+												<p class="imgbox-header">Evolution Skyline</p>
+												<p>홍콩 건축의 환상적인 스카이라인을 바라보는건 어떨까요?</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+				</section>
+				
+
+				<section>
+					<h1>메인영역2-2 looking for</h1>
+					<!--  looking for section -->
+				</section>
+
+				<section>
+					<h1>메인영역2-3 Traveller essentials</h1>
+				</section>
+				<!--  Traveller essentials section -->
+			</section>
+			<!-- MainContents section -->
+		</div>
+	</main>
+
+
+	<th:block th:insert="/HeaderFooter::footer">
+	</th:block>
+</body>
+</html>

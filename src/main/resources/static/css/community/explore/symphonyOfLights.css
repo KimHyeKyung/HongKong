@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+@import url("/css/HeaderFooter.css");
+@import url("/css/common.css");
+
+/* ////////////////////////////////// */
+/* 각 문단 제목마다 굵은 글씨 */
+#content-subject{
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+/* 글에 들어가는 큰 이미지 */
+#content-img{
+	width: 800px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+#hr{
+	margin-top: 100px;
+}
+#italic{
+	margin:80px;
+	text-align: center;
+	font-size: 20px;
+	font-style: italic;
+}
+
+/* ////////////////////////////////// */
+.article-header-container{
+	width: 100%;
+}
+.article-header{
+	padding-top:250px;
+	padding-bottom:50px;
+	font-size: 60px;
+	font-weight: bold;
+}
+#article-subject{
+	padding-left: 20px;
+}
+#article-subject-photo{
+	background-image:url("/images/simphonyOfLights/aqua-luna-4-5.jpg");
+	background-repeat: no-repeat;
+	background-position:center;
+	background-size:cover;
+	width: 100%;
+	height: 600px;
+}
+.sol-content{
+	display: block;
+	width: 100%;
+}
+.article-container{
+	margin: 0 auto;
+	width: 1100px;
+	padding-top: 30px;
+	padding-left: 150px;
+	padding-right: 150px;
+	font-size: 15px;
+}
+#sol-info p{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#sound{
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+#video{
+	width: 835px;
+	height: 470px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+

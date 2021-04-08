@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+.weather-wrap{
+	margin-bottom: 80px;
+}
+
+.weather-de{
+	display:block;
+	font-size: 20px;
+	text-align: center;
+}
+.weather-temp{
+	display:block;
+	font-size: 30px;
+	text-align: center;
+}
+.weatherImg img{
+	display:block;
+	width: 110px;
+	margin: 0 auto;
+}

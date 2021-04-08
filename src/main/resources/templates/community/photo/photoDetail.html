@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/css/community/photo/detail.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#edit_form").hide();
+		$("#edit_btn").click(clickedEditBtn);
+	});
+	
+	function clickedEditBtn(){
+		$("#edit_form").show();
+		$("#detail_form").hide();
+	}
+
+</script>
+
+</head>
+<body>
+	<th:block th:insert="/HeaderFooter::header">
+	</th:block>
+	<section id="detail">
+		<h1>Detail photo</h1>
+		<span>photo</span>
+	</section>
+
+	<section>
+		<!-- enctype꼭 설정!! (enctype="multipart/form-data") -->
+		<div id="detail_form">
+			<div id="file-wrap">
+				<label for="fileInput" id="fileLable">
+					<img th:src="${detail.img.fileUrl}" width="416px">
+				</label>
+			</div>
+			<p>
+				제목 : [[${detail.subject}]]
+			</p>
+			<p>
+				내용 : [[${detail.contents}]]
+			</p>
+			<p>
+				<input value="수정" id="edit_btn" type="submit">
+				<a th:href="|/community/photo/delete/${detail.no}|"><button type="button">삭제</button></a>
+				<input type="hidden" name="no" th:value="${detail.no}">
+			</p>
+		</div>
+	<!-- -------------------------------------------------------------- -->
+		<!-- enctype꼭 설정!! (enctype="multipart/form-data") -->
+		<form id="edit_form" action="/community/photo/photoEdit" method="post" enctype="multipart/form-data">
+			<div id="file-wrap">
+				<label for="fileInput" id="fileLable">
+					<img th:src="${detail.img.fileUrl}" width="416px">
+				</label>
+			</div>
+			<p>
+				제목 <br>
+				<input id="subject"  name="subject" th:value="${detail.subject}">
+			</p>
+			<p>
+				내용 <br>
+				<input id="contents" type="text" name="contents" th:value="${detail.contents}">
+			</p>
+			<p>
+				<input value="수정완료" id="edit_done_btn" type="submit">
+				<input type="hidden" name="no" th:value="${detail.no}">
+			</p>
+		</form>
+	</section>
+
+
+
+	<!--        
+         페이징처리 섹션 만들어야 함
+         시작번호:1,  마지막페이지번호: page.getTotalPages()
+         <div>
+            <a href="">&lt;</a>
+         
+         
+         
+         </div> 페이징처리 영역
+         
+         
+   -->
+   	<th:block th:insert="/HeaderFooter::footer">
+	</th:block>
+
+</body>
+</html>

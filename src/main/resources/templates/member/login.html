@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	 xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="/css/index.css">
+	<link rel="stylesheet" href="/css/member/login.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#email").blur(emailCheck);
+		});
+	
+		function emailCheck(){
+			var _email = $("#email").val().trim();
+			if(_email==""){ //이메일이 공백이면
+				$(this).next().text("이메일을 입력해주세요!").css("color", "red");
+				return;
+			}
+		}
+	
+	</script>
+</head>
+<body>
+	<th:block th:insert="/HeaderFooter::header">
+	</th:block>
+	
+	<main>
+		<section id="LOGIN">
+			<h1>LOGIN</h1>
+			<span>LOGIN</span>
+		</section>
+		<section>
+			<form action="/login" th:object="${memberDto}" method="post" >
+				<div class="login-wrap">
+					<div>ID</div>
+					<input type="text" th:field="*{email}" placeholder="e-mail">
+					<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email Error</div>
+					<div>PASSWORD</div>
+					<input type="password" th:field="*{password}" placeholder="비밀번호">
+					
+					<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password Error</div>
+					<button id="login-btn" type="submit">로그인</button>
+					<div>
+						<a href="/oauth2/authorization/google"><img class="login-img flex" alt="naver-login" src="/images/member/btn_google_signin_light_normal_web.png"></a>
+						<a href="/oauth2/authorization/naver"><img class="login-img flex" alt="naver-login" src="/images/member/네이버 아이디로 로그인_완성형_Green.PNG"></a>
+						<a href="/oauth2/authorization/kakao"><img class="login-img flex" alt="kakao-login" src="/images/member/kakao_login_medium_narrow.png"></a>
+					</div>
+					<div id="join-info">
+						<div>아직 회원이 아니신가요?</div>
+						<div>회원가입 후 다양한 홍콩을 만나보세요!</div>
+						<a href="/member/join"><button id="join-btn" type="button">회원가입</button></a>
+					</div>
+				</div>
+			</form>
+		
+		</section>
+	</main>
+	
+	
+	
+	<th:block th:insert="/HeaderFooter::footer">
+	</th:block>
+</body>
+</html>

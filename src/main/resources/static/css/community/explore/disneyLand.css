@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+@import url("/css/HeaderFooter.css");
+@import url("/css/common.css");
+
+.article-header-container{
+	width: 100%;
+}
+.article-header{
+	padding-top:250px;
+	padding-bottom:50px;
+	font-size: 60px;
+	font-weight: bold;
+}
+#article-subject{
+	padding-left: 20px;
+}
+#article-subject-photo img{
+	width: 100%;
+	height: 600px;
+}
+.dhk-content{
+	display: block;
+	width: 100%;
+}
+.article-container{
+	margin: 0 auto;
+	width: 1100px;
+	padding-top: 30px;
+	padding-left: 150px;
+	padding-right: 150px;
+	font-size: 15px;
+}
+#howto{
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+/* 각 문단 제목마다 굵은 글씨 */
+#content-subject{
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+.ride{
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+#ride-img{
+	width: 300px;
+	height: 100%;
+}
+#ride-content{
+	margin-left: 40px;
+}
+#iron-man{
+	margin-bottom: 10px;
+}
+.food{
+	margin-top: 50px;
+	margin-bottom: 80px;
+}
+.food p:last-child{
+	margin-top: 20px;
+}
+/* 글에 들어가는 큰 이미지 */
+#content-img{
+	width: 800px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+.hotel p:last-child{
+	margin-top: 20px;
+}
+#hr{
+	margin-top: 100px;
+}

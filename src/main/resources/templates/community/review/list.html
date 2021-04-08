@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/community/board/list.css">
+<link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+	<th:block th:insert="/HeaderFooter::header">
+	</th:block>
+	<section id="REVIEW">
+		<h1>REVIEW</h1>
+		<span>REVIEW</span>
+	</section>
+
+	<section>
+		<h1>테이블</h1>
+		<div class="table-wrap">
+			<table class="table">
+				<thead>
+					<tr>
+						<td>번호</td>
+						<td>제목</td>
+						<td>작성자</td>
+						<td>작성일</td>
+						<td>조회</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="dto:${list}">
+						<td>[[${dto.bno}]]</td>
+						<td><a th:href="|/community/review/detail/${dto.bno}|">[[${dto.subject}]]</a></td>
+						<td >
+							[[${dto.creatorId}]]
+						</td>
+						<td>[[${dto.createdDate}]]</td>
+						<td>[[${dto.readCount}]]</td>
+					</tr>
+				</tbody>
+			</table>
+			<div>
+				<a id="goWrite-btn" href="/community/review/write">글쓰기</a>
+			</div>
+		</div>
+
+	</section>
+
+
+
+	<!--        
+         페이징처리 섹션 만들어야 함
+         시작번호:1,  마지막페이지번호: page.getTotalPages()
+         <div>
+            <a href="">&lt;</a>
+         
+         
+         
+         </div> 페이징처리 영역
+         
+         
+   -->
+	<th:block th:insert="/HeaderFooter::footer">
+	</th:block>
+</body>
+</html>

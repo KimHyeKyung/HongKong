@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/css/community/board/reply.css">
+<script type="text/javascript">
+	$(function(){
+		$(".reply-display-wrap").show();
+		$(".reply-edit-wrap").hide();
+		$(".editBtn").click(editBtnClicked); // 수정버튼
+		$(".editDoneBtn").click(editDoneClicked); //수정완료버튼
+		$(".delBtn").click(delBtnClicked); //삭제버튼
+	});
+
+	function editBtnClicked(){//수정버튼 눌렀을 때
+		//선택된 댓글만 수정폼 띄우기
+		var disp_reply = $(this).parents(".reply-display-wrap");
+		disp_reply.next().show();
+		disp_reply.hide();
+	}
+	
+	function editDoneClicked(){ //수정완료버튼 눌렀을 때
+		var rno = $(this).prev().val();
+		var text = $(this).parents(".reply-area").find(".text").val();
+		$.ajax({
+			url:"/rest/reply/"+rno,
+			type:"post",
+			data:{
+				"text":text,
+				"_method":"put"
+				},
+			success:function(){
+				getReply(); //변경된 데이터 전체 불러오기
+			}
+		});
+	}
+	
+	//delete할때는 type:"delete"하기, confirm넣기
+	function delBtnClicked(){ //삭제버튼 눌렀을 때
+		var rno = $(this).parents(".reply-area").find(".rno").val();
+		$.ajax({
+			url:"/rest/reply/",
+			type:"post",
+			data:{
+				"rno":rno,
+				"_method":"delete"
+			},
+			success:function(){
+				getReply(); //변경된 데이터 전체 불러오기
+			}
+		});
+	}
+	
+	
+	
+</script>
+</head>
+<body>
+
+<div th:each="reply:${replies}" class="reply-area">
+	<!-- //////////////////////////////////////////////////////////////////// -->
+	<!-- 페이지 로딩시 보여지는 댓글 -->
+	<div class="reply-display-wrap">
+		<div class="reply-write">♡[[${reply.replyWriter}]]♡</div>
+		<div class="reply-input">[[${reply.text}]]</div>
+		<div><input class="btn-reply editBtn" type="submit" value="수정"/></div>
+	</div>
+	<!-- //////////////////////////////////////////////////////////////////// -->
+	<!-- 수정버튼 클릭 시 보여지는 댓글 -->
+	<div class="reply-edit-wrap">
+		<div class="reply-write">♡[[${reply.replyWriter}]]♡</div>
+		<div><input class="reply-input text" type="text" th:value="${reply.text}"></div>
+		<div>
+			<input class="rno" type="hidden" th:value="${reply.rno}">
+			<input type="submit" class="btn-reply editDoneBtn" value="수정"/>
+			<input type="submit" class="btn-reply delBtn" value="삭제"/>
+		</div>
+	</div>
+</div>
+</body>
+</html> 

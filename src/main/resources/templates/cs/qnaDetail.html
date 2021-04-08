@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="/css/community/photo/detail.css">
+	<link rel="stylesheet" href="/css/index.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".edit-form").hide();
+			$("#editBtn").click(editBtnClicked);//수정버튼 누르면
+		});
+		
+		function editBtnClicked(){//수정버튼 function
+			$(".edit-form").show();
+			$(".detail-form").hide();
+		}
+	
+	</script>
+</head>
+<body>
+	<th:block th:insert="/HeaderFooter::header">
+	</th:block>
+
+	<section id="detail">
+		<h1>DETAIL</h1>
+		<span>Q&A</span>
+	</section>
+	
+	
+	<section>
+		<h1>테이블</h1>
+		<div  class="form-wrap flex-around">
+			<form class="detail-form" th:action="|/cs/qnaList/${detail.bno}|" method="post">
+				<div class="subject-wrap flex">
+					<div class="subject1">
+						<span>제목</span>
+					</div>
+					<div class="subject2">
+						<span>[[${detail.subject}]]</span>
+					</div>
+				</div>
+				<div class="contents-wrap flex">
+					<div class="contents1">
+						<span>내용</span>
+					</div>
+					<div class="contents2">
+						<span>[[${detail.contents}]]</span>
+					</div>
+					<div>
+						<span>
+							<input type="hidden" name="email" th:value="${detail.email}" />
+							<input type="hidden" th:value="${detail.bno}" name="bno">
+						</span>
+					</div>
+				</div>
+				<div sec:authorize="isAuthenticated()" 
+								th:if="${#authentication.principal.email == detail.email or #authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+					<input type="button" id="editBtn" value="수정">
+					<input type="hidden" name="_method" value="delete">
+					<input type="submit" value="삭제">
+				</div>
+			</form>
+		</div>
+<!-- -------------------------------수정하기 눌렀을 때 변환되는 폼------------------------------- -->
+		<div class="edit-form form-wrap flex-around">
+			<form th:action="|/cs/qnaList/${detail.bno}|" method="post">
+				<div class="subject-wrap flex">
+					<div class="subject1">
+						<span>제목</span>
+					</div>
+					<div class="subject2">
+						<span>
+							<textarea rows="3" cols="40" name="subject">[[${detail.subject}]]</textarea>
+						</span>
+					</div>
+				</div>
+				<div class="contents-wrap flex">
+					<div class="contents1">
+						<span>내용</span>
+					</div>
+					<div class="contents2">
+						<span>
+							<textarea rows="10" cols="40" name="contents">[[${detail.contents}]]</textarea>
+						</span>
+					</div>
+					<div>
+						<span>
+							<input type="hidden" name="email" th:value="${detail.email}"/>
+							<input type="hidden" th:value="${detail.bno}" name="bno">
+						</span>
+					</div>
+				</div>
+				<div>
+					<input type="hidden" name="_method" value="put">
+					<input type="submit" id="editDoneBtn" value="수정">
+				</div>
+			</form>
+		</div>
+	</section>
+
+	<th:block th:insert="/HeaderFooter::footer">
+	</th:block>
+
+	<!--        
+         페이징처리 섹션 만들어야 함
+         시작번호:1,  마지막페이지번호: page.getTotalPages()
+         <div>
+            <a href="">&lt;</a>
+         
+         
+         
+         </div> 페이징처리 영역
+         
+   -->
+
+</body>
+</html>

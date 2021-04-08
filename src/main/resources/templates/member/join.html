@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="/css/index.css">
+	<link rel="stylesheet" href="/css/member/join.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#email").blur(emailCheck);
+		});
+	
+		function emailCheck(){
+			var _email = $("#email").val().trim();
+			if(_email==""){ //이메일이 공백이면
+				$(this).next().text("이메일을 입력해주세요!").css("color", "red");
+				return;
+			}
+			//ajax처리
+			$.post(
+					"/member/emailCheck",
+					{"email": _email},
+					function(result){
+						if(result==1){
+							$(".msg").text("사용가능한 이메일입니다.").css("color", "blue");
+						}else{
+							$(".msg").text("이미 존재하거나 탈퇴한 이메일입니다.").css("color", "red");
+						}
+					}
+			);
+		}
+	
+	</script>
+</head>
+<body>
+	<th:block th:insert="/HeaderFooter::header">
+	</th:block>
+	
+	<main>
+		<section id="JOIN">
+			<h1>JOIN</h1>
+			<span>회원가입</span>
+		</section>
+		<section>				<!-- th:object= @PostMapping("/member/join")에 쓴 클래스 객체 이름으로 적는다 -->
+			<form action="/member/join" th:object="${memberDto}" method="post">
+				<div class="join-wrap">
+					<div>이름</div>
+					<input type="text" th:field="*{name}" placeholder="이름">
+					<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name Error</div>
+					
+					<div>이메일</div>
+					<input type="email" id="email" th:field="*{email}" placeholder="e-mail">
+					<span class="msg"></span>
+					<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" >e-mail Error</div>
+					
+					<div>비밀번호</div>
+					<input type="password" th:field="*{password}"  placeholder="비밀번호">
+					<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password Error</div>
+					
+					<!-- <div>비밀번호 확인</div>
+					<input type="password" placeholder="비밀번호를 다시 입력해주세요"> -->
+					<div>
+						<button id="join-btn" type="submit">회원가입</button>
+					</div>
+				</div>
+			</form>
+		
+		
+		</section>
+	</main>
+	
+	
+	
+	<th:block th:insert="/HeaderFooter::footer">
+	</th:block>
+</body>
+</html>
