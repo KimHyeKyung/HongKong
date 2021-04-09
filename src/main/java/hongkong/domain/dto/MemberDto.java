@@ -2,22 +2,25 @@ package hongkong.domain.dto;
 
 import java.time.LocalDateTime;
 
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import hongkong.domain.entity.Member;
 import hongkong.domain.entity.Role;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@AllArgsConstructor
 @Getter
 @NoArgsConstructor
 @Data
 public class MemberDto {//인증된 멤버 dto
 
-	@Size(min = 2,max = 20)
+	@Size(min = 2,max = 50)
 	@Pattern(regexp = "[a-zA-z0-9]+@[-zA-z0-9]+[.]+[a-zA-z.]+", message = "@를 사용한 이메일 형식을 맞춰주세요")
 	private String email;
 	
