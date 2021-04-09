@@ -19,9 +19,9 @@ Java, HTML, CSS, JavaScript, Ajax, JQuery <br>
 ### 🌹 게시판 개요
 --------
 #### 1. 메인페이지 (OpenAPI - WeatherAPI, SNS Login API)
-#### 2. 홍콩 여행 후기, NOTICE (JPA, Ajax를 이용한 CRUD구현)
-#### 3. PHOTO 후기(FILE을 이용한 CRUD구현)
-#### 4. Q&A(MyBatis를 이용한 CRUD구현)
+#### 2. 홍콩 여행 후기, NOTICE (JPA, Ajax를 이용한 API)
+#### 3. PHOTO 후기(FILE을 이용한 API)
+#### 4. Q&A(MyBatis를 이용한 API)
 #### 5. Spring Security(Spring Security를 통한 인증,인가 ) - 진행중
 <br>
 <br>
@@ -36,20 +36,20 @@ Java, HTML, CSS, JavaScript, Ajax, JQuery <br>
 : 사용자들에게 편리한 로그인 서비스를 제공하기 위해 Google, Naver, Kakao의 OpenAPI서비스를 활용하여 SNS Login 기능을 하였다.<br>
 
 
-### 💡 홍콩 여행 후기, NOTICE(JPA, Ajax를 이용한 CRUD구현)
+### 💡 홍콩 여행 후기, NOTICE(JPA, Ajax를 이용한 API)
 --------
 ◽ **JPA**를 사용하여 관계형 데이터베이스의 관리 표현하여 유저들끼리 게시글을 써서 정보를 주고받는 게시판을 만들었다.<br>
 ◽ **Ajax**의 비동기 통신을 이용한 댓글기능을 구현하였다.
 <br>
 <br>
 
-### 💡 PHOTO 후기(FILE을 이용한 CRUD구현)
+### 💡 PHOTO 후기(FILE을 이용한 API)
 --------
 ◽ **File**입출력을 구현하여 사용자들간 사진을 이용한 정보공유가 가능한 게시판을 만들었다.
 <br>
 <br>
 
-### 💡 Q&A(MyBatis를 이용한 CRUD구현)
+### 💡 Q&A(MyBatis를 이용한 API)
 --------
 ◽ **MyBatis**를 활용하여 XML과 annotation을 사용하여 SQL문으로 객체를 연결한 게시판을 만들었다.
 <br>
