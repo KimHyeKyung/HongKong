@@ -57,6 +57,8 @@ Java, HTML, CSS, JavaScript, Ajax, JQuery <br>
 
 ### 💡 Spring Security(Spring Security를 유저 권한설정)
 --------
-◽ **Spring Security**를 활용하여 guest와 user의 권한을 달리 부여함으로 글의 수정, 삭제 등의 기능이 유저마다 다르게 부여되도록 한다.
+◽ **Spring Security**의 인증, 인가를 활용하여 guest, user, admin의 권한을 달리 부여함으로 글의 수정, 삭제 등의 기능이 유저마다 다르게 부여되도록 한다.
+<br>
+◽ **OAuth2** SNS Login기능을 제공하는 각 사이트의 token을 발급받아 AccessToken을 활용하여 SNS Login 기능을 제공하였다.<br>
 <br>
 <br>
