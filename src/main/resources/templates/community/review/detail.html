@@ -143,7 +143,10 @@
 						<input type="hidden" id="replyWriter" name="replyWriter" th:value="${#authentication.principal.name}">
 					</div>
 					<div><input class="reply-input" type="text" id="text" name="text" placeholder="댓글을 입력해주세요"></div>
-					<div><input type="submit" class="btn-reply" value="등록"/></div>
+					<div sec:authorize="isAuthenticated()"
+			 th:if="${#authorization.expression('hasRole(''ROLE_USER'')') or #authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+						<input type="submit" class="btn-reply" value="등록"/>
+					</div>
 				</div>
 			</div>
 			

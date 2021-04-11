@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -32,7 +32,9 @@
 					</div>
 				</li>
 			</ul>
-			<div class="goWrite-btn-wrap">
+			<div class="goWrite-btn-wrap"
+			sec:authorize="isAuthenticated()"
+			 th:if="${#authorization.expression('hasRole(''ROLE_USER'')') or #authorization.expression('hasRole(''ROLE_ADMIN'')')}">
 				<a id="goWrite-btn" href="/community/photo/photoWrite">글쓰기</a>
 			</div>
 

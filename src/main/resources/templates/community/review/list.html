@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -39,7 +39,9 @@
 					</tr>
 				</tbody>
 			</table>
-			<div>
+			<div 
+			sec:authorize="isAuthenticated()"
+			 th:if="${#authorization.expression('hasRole(''ROLE_USER'')') or #authorization.expression('hasRole(''ROLE_ADMIN'')')}">
 				<a id="goWrite-btn" href="/community/review/write">글쓰기</a>
 			</div>
 		</div>
