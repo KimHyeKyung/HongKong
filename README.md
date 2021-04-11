@@ -45,7 +45,7 @@ Java, HTML, CSS, JavaScript, Ajax, JQuery <br>
 
 ### 💡 PHOTO 후기(FILE을 이용한 API)
 --------
-◽ **File**입출력을 구현하여 사용자들간 사진을 이용한 정보공유가 가능한 게시판을 만들었다.
+◽ **File**입출력을 이용하여 사용자들간 사진을 이용한 정보공유가 가능한 게시판을 만들었다.
 <br>
 <br>
 
