@@ -20,6 +20,7 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	private BoardRepository repository;
 
+	//DB에 있는 모든 정보를 가져와야 하니깐 List<>로 가져와야한다.
 	@Override
 	public List<BoardDto> getReviewList() {
 		
