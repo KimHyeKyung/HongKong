@@ -28,13 +28,13 @@ Java, HTML, CSS, JavaScript, Ajax, JQuery <br>
 
 ### 💡 메인페이지(OpenAPI - WeatherAPI)
 ---------
-**JSON**데이터를 활용해 날씨와 로그인 **OpenAPI** 기능을 이용하여 홍콩 여행 커뮤니티 유저들에게 편리한 기능들을 제공했다.<br>
 ◽ **Weather API**<br>
-날씨정보의 여러 데이터들 중 가장 필요한 정보인 섭씨온도와 날씨에 대한 설명 그리고 직관적으로 볼 수 있는 날씨 이미지를 적용하였다.
+✔**JSON**데이터를 활용해 날씨와 로그인 **OpenAPI** 기능을 이용하여 홍콩 여행 커뮤니티 유저들에게 편리한 기능들을 제공했다.<br>
+✔날씨정보의 여러 데이터들 중 가장 필요한 정보인 섭씨온도와 날씨에 대한 설명 그리고 직관적으로 볼 수 있는 날씨 이미지를 적용하였다.
 <br>
-리턴되는 데이터를 가져오기 위해 RestTempleat객체를 이용하였다.
+✔리턴되는 데이터를 가져오기 위해 RestTempleat객체를 이용하였다.
 <br>
-getForObject를 통해 클래스 구조에 자동 매핑시켰다.
+✔getForObject를 통해 클래스 구조에 자동 매핑시켰다.
 <br>
 <br>
 ### 💡 홍콩 여행 후기, NOTICE(JPA, Ajax를 이용한 API)
@@ -60,15 +60,15 @@ getForObject를 통해 클래스 구조에 자동 매핑시켰다.
 --------
 ◽ **Spring Security**
 <br>
-인증, 인가를 활용하여 guest, user, admin의 권한을 달리 부여함으로 글의 수정, 삭제 등의 기능이 유저마다 다르게 부여되도록 한다.
+✔인증, 인가를 활용하여 guest, user, admin의 권한을 달리 부여함으로 글의 수정, 삭제 등의 기능이 유저마다 다르게 부여되도록 한다.
 <br>
-BCryptPasswordEncoder를 사용하여 비밀번호 암호화
+✔BCryptPasswordEncoder를 사용하여 비밀번호 암호화
 <br>
 <br>
 ◽ **OAuth2**
 <br>
-SNS Login기능을 제공하는 각 사이트의 token을 발급받아 AccessToken을 활용하여 사용자들에게 편리한 로그인 서비스를 제공하기 위해
+✔SNS Login기능을 제공하는 각 사이트의 token을 발급받아 AccessToken을 활용하여 사용자들에게 편리한 로그인 서비스를 제공하기 위해
 <br>
-SNS Login API(Google, Naver, Kakao) 기능을 제공하였다.<br>
+✔SNS Login API(Google, Naver, Kakao) 기능을 제공하였다.<br>
 <br>
 <br>
