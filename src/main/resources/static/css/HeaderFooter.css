@@ -24,10 +24,8 @@
 
 .navBar-wrap {
 	height: 100px;
-	/* padding: 0px 0px; */
-	/* background-color: #fff; */
 	text-align: center;
-	margin-left: 120px;
+	margin-left: 140px;
 	width: 100%;
 }
 
@@ -35,7 +33,7 @@
 .navBar-wrap li {
 	float: left; /* 메뉴를 왼쪽부터 표시한다 */
 	position: relative; /* 순서대로 표시한다 */
-	margin: 0px 20px;
+	margin-right: 20px;
 	padding: 0;
 	text-align: center;
 }
@@ -45,19 +43,16 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-/* 	font-weight: bold; */
 	font-size: 18px;
 	padding: 0px 30px;
 	margin: 0;
 	height: 100px;
-	/* 	line-height: 90px; */
 }
 
 /* 메인메뉴 링크에 hover */
-.navBar-wrap li:hover>a {
+/* .navBar-wrap li:hover>a {
 	margin: 0;
-	/* padding: 5px; */
-}
+} */
 
 /* 메인메뉴에 마우스 포인터를 가져갔을 때 서브메뉴 스타일 */
 .navBar-wrap li:hover ul {
@@ -67,22 +62,19 @@
 /* 마우스 포인터를 올려놨을 때 서브메뉴 스타일 */
 .navBar-wrap li:hover ul li {
 	height: 50px; /* 서브메뉴의 높이 */
-	/* width:180px; */
 	overflow: visible; /* 영역을 넘어가는 내용이 있다면 표시 */
-	text-align: center;
-	justify-content: center;
-	/* padding: 0 30px; */
+	/* text-align: center; */
+	/* justify-content: center; */
 }
 
 /* 서브메뉴 스타일 */
 .navBar-wrap ul {
 	position: absolute; /* 고정위치에 표시 */
 	top: 70px; /* 부모요소로부터 100px아래에 표시 */
-	left: -30px; /* 부모요소와 왼쪽 좌표값을 같게 한다 */
-	/* padding: 0 10px; */
-	width: 250px; /* 서브메뉴의 너비 */
+	/* left: -30px; */ /* 부모요소와 왼쪽 좌표값을 같게 한다 */
+	width: 150px; /* 서브메뉴의 너비 */
 	background-color: #fff;
-	text-align: center;
+	/* text-align: center; */
 	opacity: 0; /* 투명하게 표시되도록 평소에 안보이게 설정 */
 }
 
@@ -92,8 +84,8 @@
 	font-size: 14px;
 	padding: 0px;
 	margin: 0;
-	width: 250px;
-	text-align: center;
+	width: 150px;
+	/* text-align: center; */
 }
 
 /* 서브메뉴 리스트중에 처음 li가 top에 딱 붙지 않게 */
@@ -133,11 +125,12 @@
 }
 
 .header3-wrap ul {
-	margin-top: 36px;
+	margin-top: 40px;
 	display: flex;
 	font-size: 14px;
 	justify-content: center;
 	width: 100%;
+	font-weight: 600;
 }
 
 .header3-wrap ul li {

@@ -5,22 +5,29 @@
 	margin: 0;
 	padding: 0;
 }
-.weather-wrap{
-	margin-bottom: 80px;
+
+.weather-city{
+	width: 1000px;
+	margin: 0 auto;
+	font-size: 30px;
+	font-weight: bold;
+	color: cornflowerblue;
 }
 
-.weather-de{
-	display:block;
-	font-size: 20px;
+.weather-wrap{
+	width: 1000px;
+	margin: 0 auto;
+}
+.weather-wrap .weather-block{
+	margin: 0 auto;
+}
+.weather-detail{
 	text-align: center;
+	margin-bottom: 10px;
 }
 .weather-temp{
-	display:block;
-	font-size: 30px;
-	text-align: center;
+	font-size: 16px;
 }
-.weatherImg img{
-	display:block;
-	width: 110px;
-	margin: 0 auto;
+#koImg{
+	padding-left: 15px;
 }

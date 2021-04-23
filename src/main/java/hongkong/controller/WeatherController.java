@@ -15,12 +15,26 @@ public class WeatherController {
 	@Autowired
 	private WeatherService weatherService;
 	
+
+	//한국
 	@ResponseBody
-	@GetMapping("/weather/result")
-	public ModelAndView weather(ModelAndView mv) {
-		OpenWeather result=weatherService.getWeatherData();
-		mv.addObject("main", result.getMain());
-		mv.addObject("weather", result.getWeather());
+	@GetMapping("/weather/KoResult")
+	public ModelAndView KoWeather(ModelAndView mv) {
+		OpenWeather result=weatherService.getKoWeatherData();
+		mv.addObject("komain", result.getMain());
+		mv.addObject("koweather", result.getWeather());
+		mv.setViewName("/weather");
+		return mv;
+		//if(result==null)return;
+	}
+	
+	//홍콩
+	@ResponseBody
+	@GetMapping("/weather/HkResult")
+	public ModelAndView HkWeather(ModelAndView mv) {
+		OpenWeather result=weatherService.getHkWeatherData();
+		mv.addObject("hkmain", result.getMain());
+		mv.addObject("hkweather", result.getWeather());
 		mv.setViewName("/weather");
 		return mv;
 		//if(result==null)return;

@@ -9,9 +9,16 @@
 <script type="text/javascript">
 	$(function(){
 		$.ajax({
-			url:"/weather/result",
+			url:"/weather/KoResult",
 			success: function(result){
-				$("#weather").html(result);
+				$(".Koweather").html(result);
+			}
+		});
+		
+		$.ajax({
+			url:"/weather/HkResult",
+			success: function(result){
+				$(".Hkweather").html(result);
 			}
 		});
 		
@@ -57,15 +64,26 @@
 				<div class="attraction-wrap">
 					<div class="harbour-container">
 						<div id="attraction">
-							<span>HongKong</span>
+							<span>Hello HongKong :)</span>
 						</div>
 						<!-------------- 날씨 영역 ----------------->
-						<section class="weather-wrap">
-							<div id="wImg"></div>
-							<div id="weather">
-							
+						<div class="weather-city flex-around">
+							<span>서울날씨</span>
+							<span>홍콩날씨</span>
+						</div>
+						
+						<section class="weather-wrap flex-around">
+							<!-- //한국// -->
+							<div class="weather-block">
+								<div class="Koweather"></div>
+							</div>
+							<!-- //홍콩// -->
+							<div class="weather-block">
+								<div class="Hkweather"></div>
 							</div>
 						</section>
+						<!------------------------------->
+						
 						
 						<div class="middle-img-wrap">
 							<div class="middle-img">

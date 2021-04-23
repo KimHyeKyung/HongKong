@@ -21,25 +21,23 @@
 	height:50px;
 	text-align: center;
 	font-size: 35px;
-	margin-top: 10px;
+	margin-top: 30px;
+	margin-bottom: 70px;
 	font-weight: 700;
 }
 .img-wrap{
-	width: 100%;
-	height: 700px;
+	width: 1070px;
 	margin: 0 auto;
 }
 .attraction-wrap .img-wrap img{
-	width: 1100px;
-	height: 618px;
-	margin-left: 284px;
-	margin-top: 70px;
+	width: 100%;
+	height: 624px;
 	position: relative;
 }
 #harbour-write{
 	position: absolute;
 	margin-top: -55px;
-	margin-left: 290px;
+	margin-left: 20px;
     color: #fff;
     font-size: 27px;
     font-weight: bold;

@@ -1,17 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" href="/css/weather.css">
+<link rel="stylesheet" href="/css/index.css">
 
-<div class="weather-wrap">
-	<div th:each="weather:${weather}">
-		<div class="weatherImg">
-			<img th:src="|http://openweathermap.org/img/wn/${weather.icon}@2x.png|" alt="">
+<div>
+	<!-- 한국 -->
+	<div class="koweather-wrap">
+		<div th:each="koweather:${koweather}">
+			<div class="koweatherImg">
+				<img id="koImg" th:src="|http://openweathermap.org/img/wn/${koweather.icon}@2x.png|" alt="">
+			</div>
+			<div class="weather-detail">
+				<spa>[[${koweather.description}]]</span>
+			</div>
 		</div>
-		<div>
-			<span class="weather-de">[[${weather.description}]]</span>
+		
+		<div class="weather-temp" th:each="komain:${komain}">
+			<div><span>현재기온 [[${komain.temp}]]°C</span></div>
+			<div><span>최저기온 [[${komain.temp_min}]]°C</span></div>
+			<div><span>최고기온 [[${komain.temp_max}]]°C</span></div>
 		</div>
 	</div>
-	<div>
-		<span class="weather-temp">[[${main.temp}]]°C</span>
+	
+	<!-- 홍콩 -->
+	<div class="hkweather-wrap">
+		<div class="weather-detail" th:each="hkweather:${hkweather}">
+			<div class="weatherImg">
+				<img th:src="|http://openweathermap.org/img/wn/${hkweather.icon}@2x.png|" alt="">
+			</div>
+			<div class="weather-detail">
+				<span >[[${hkweather.description}]]</span>
+			</div>
+		</div>
+		
+		<div class="weather-temp" th:each="hkmain:${hkmain}">
+			<div><span>현재기온 [[${hkmain.temp}]]°C</span></div>
+			<div><span>최저기온 [[${hkmain.temp_min}]]°C</span></div>
+			<div><span>최고기온 [[${hkmain.temp_max}]]°C</span></div>
+		</div>
 	</div>
 </div>
