@@ -42,11 +42,12 @@ public class BoardServiceImpl implements BoardService{
 	
 
 	//제목을 누르면 해당 제목의 detail페이지로 이동
+	@Transactional
 	@Override
 	public BoardDto getDetailList(long bno) {
 		
 		BoardDto dto=repository.findById(bno)
-		.map(BoardDto::new)
+		.map(result->result.countup()).map(BoardDto::new)
 		.orElse(null);
 		
 		return dto;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -64,7 +64,9 @@
 	<div class="reply-display-wrap">
 		<div class="reply-write">♡[[${reply.replyWriter}]]♡</div>
 		<div class="reply-input">[[${reply.text}]]</div>
-		<div><input class="btn-reply editBtn" type="submit" value="수정"/></div>
+		<div sec:authorize="isAuthenticated()">
+			<input class="btn-reply editBtn" type="submit" value="수정"/>
+		</div>
 	</div>
 	<!-- //////////////////////////////////////////////////////////////////// -->
 	<!-- 수정버튼 클릭 시 보여지는 댓글 -->

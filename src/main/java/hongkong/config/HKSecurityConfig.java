@@ -41,7 +41,7 @@ public class HKSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-			.csrf().disable() //csrf사용 안할게요.authorizeRequests()
+			.csrf().disable() //csrf사용 안할게요
 			.authorizeRequests()
 				.antMatchers("/","/log/**","/**", "/css/**" , "/images/**", "/js/**").permitAll() // "/"로 시작하는 모든 주소는 허가됩니다.
 				.antMatchers("/admin/**").hasRole("ADMIN")
@@ -53,7 +53,6 @@ public class HKSecurityConfig extends WebSecurityConfigurerAdapter{
 							.usernameParameter("email") //username으로 받아온 값이 DB에는 email로 저장되어있으니 파라미터 이름을 바꾼다
 							.passwordParameter("password")
 			.and().logout()//만약 csrf토큰 사용시 반드시 POST로만 로그아웃 처리해야한다. -> form태그를 이용해서 post로 처리
-			
 			//구글 클라이언트 추가
 			.and().oauth2Login();
 	}

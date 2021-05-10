@@ -54,7 +54,7 @@ public class MemberController {
 		}
 		
 		service.dojoin(dto);
-		return "redirect:/";
+		return "redirect:/member/login";
 	}
 	
 	//join.html $.post처리

@@ -23,6 +23,7 @@ public class BoardController {
 		return "/index";
 	}
 	
+	//ModelAndView: addObject()를 이용해 파라미터에 객체값을 넘김
 	//review페이지에 DB에 저장된 list들을 보여주세요
 	@GetMapping("/community/review/list")
 	public ModelAndView getReviewList() {

@@ -88,9 +88,17 @@
 							<th>내용</th>
 							<td>[[${detail.contents}]]</td>
 						</tr>
+						
 					</tbody>
 				</table>
 				<div>
+					<span>
+						<input type="hidden" name="email" th:value="${#authentication.principal.email}" />
+						<input type="hidden" th:value="${detail.bno}" name="bno">
+					</span>
+				</div>
+				<div sec:authorize="isAuthenticated()" 
+					th:if="${#authentication.principal.email == detail.email or #authorization.expression('hasRole(''ROLE_ADMIN'')')}">
 					<input type="button" id="editBtn" value="수정">
 				</div>
 			</div>

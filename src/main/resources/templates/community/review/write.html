@@ -35,6 +35,8 @@
 				<div sec:authorize="isAuthenticated()">
 					<span><input type="hidden" name="creatorId" th:value="${#authentication.principal.name}"/></span>
 				</div>
+				
+				<span><input type="hidden" name="email" th:value="${#authentication.principal.email}"/></span>
 				<div>
 					<input id="write-btn" type="submit" value="글쓰기">
 				</div>
